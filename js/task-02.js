@@ -8,7 +8,12 @@ const ingredients = [
 ];
 
 const list = document.querySelector("#ingredients");
-const markUp = ingredients
-    .map((element) => `<li class="item">${element}</li>`)
-    .join("");
-list.insertAdjacentHTML("afterbegin", markUp);
+
+const markUp = ingredients.map((el) => {
+    const li = document.createElement("li");
+    li.classList.add("item");
+    li.textContent = el;
+    return li;
+});
+
+list.append(...markUp);
